@@ -1,0 +1,38 @@
+.Phonebook {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: auto;
+}
+.Form {
+  padding: 15px;
+
+  border: 1px solid rgb(45, 45, 211);
+}
+.Input {
+  margin-top: 8px;
+  padding: 8px;
+  font-family: inherit;
+}
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.Btn {
+  display: inline-flex;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.Btn:hover,
+.Btn:focus {
+  background-color: #1976d2;
+}
