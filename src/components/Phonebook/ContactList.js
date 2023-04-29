@@ -2,11 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Phonebook.module.css';
 
-const ContactList = ({ contacts }) => (
-  <ul className={css.ContactList}>
+const ContactList = ({ contacts, onDeleteContact }) => (
+  <ul
+    className={css.ContactList}
+    style={{
+      listStyle: 'circle',
+      listStyleSize: '16px',
+    }}
+  >
     {contacts.map(({ id, name, number }) => (
       <li key={id} className={css.ContactListItem}>
-        {name}: {number}
+        <span className={css.ContactListSpan}>
+          {name}: {number}
+        </span>
+        <button
+          className={css.Btn}
+          type="button"
+          onClick={() => onDeleteContact(id)}
+        >
+          Delete
+        </button>
       </li>
     ))}
   </ul>
@@ -20,6 +35,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;
