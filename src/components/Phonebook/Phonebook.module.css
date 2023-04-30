@@ -19,17 +19,18 @@
   color: inherit;
 }
 
-input {
+.Input {
   margin-top: 8px;
   padding: 8px;
   font-family: inherit;
 }
 
-input:focus {
+.Input:focus {
   outline: 2px solid var(--color-outline-btn);
 }
 
 .Input__Filter {
+  composes: Input;
   width: 50%;
 }
 
