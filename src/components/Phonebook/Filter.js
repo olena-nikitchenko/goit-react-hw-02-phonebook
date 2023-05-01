@@ -11,7 +11,7 @@ const Filter = ({ value, onChange }) => (
         name="filter"
         value={value}
         onChange={onChange}
-        className={css.Input__Filter}
+        className={css.Input__filter}
       />
     </label>
   </div>
