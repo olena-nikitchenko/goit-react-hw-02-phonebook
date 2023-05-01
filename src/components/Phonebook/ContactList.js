@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import css from './Phonebook.module.css';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul
-    className={css.ContactList}
-    style={{
-      listStyle: 'circle',
-      listStyleSize: '16px',
-    }}
-  >
+  <ul className={css.ContactList}>
     {contacts.map(({ id, name, number }) => (
       <li key={id} className={css.ContactListItem}>
         <span className={css.ContactListSpan}>
