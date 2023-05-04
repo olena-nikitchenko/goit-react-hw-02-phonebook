@@ -5,11 +5,28 @@ import Section from './components/Phonebook/Section';
 import ContactList from './components/Phonebook/ContactList';
 import Filter from './components/Phonebook/Filter';
 
+const LS_KEY = 'phonebook_contacts';
+
 class App extends Component {
   state = {
     contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(LS_KEY);
+    if (savedContacts) {
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem(LS_KEY, JSON.stringify(contacts));
+    }
+  }
+
   addContact = contact => {
     const { contacts } = this.state;
     const existingContact = contacts.find(
@@ -24,9 +41,9 @@ class App extends Component {
     }));
   };
   deleteContact = contactId => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
-    }));
+    const { contacts } = this.state;
+    const newContacts = contacts.filter(contact => contact.id !== contactId);
+    this.setState({ contacts: newContacts });
   };
 
   handleFilterChange = e => {
